@@ -1,0 +1,31 @@
+==================
+ctrl section
+==================
+
+$ctrl
+nstr=3
+2=3 4=5
+1=2,3,4
+$end
+
+---
+
+(source_file
+  (ctrl_section
+    (ctrl_start_token)
+    (ctrl_items_list
+      (ctrl_item
+        (ctrl_keyword)
+        (ctrl_param))
+      (ctrl_item
+        (ctrl_keyword)
+        (ctrl_param))
+      (ctrl_item
+        (ctrl_keyword)
+        (ctrl_param))
+      (ctrl_item
+        (ctrl_keyword)
+        (ctrl_param)
+        (ctrl_param)
+        (ctrl_param)))
+    (end_token)))
