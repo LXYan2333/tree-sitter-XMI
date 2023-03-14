@@ -1,0 +1,26 @@
+==================
+comment
+==================
+
+$ctrl#test
+nstr=3;test
+$end#test
+
+;Alex
+#Steve
+
+---
+
+(source_file
+  (ctrl_section
+    start_token: (ctrl_start_token)
+    (comment)
+    items_list: (ctrl_items_list
+      item: (ctrl_item
+        keyword: (ctrl_keyword)
+        param: (ctrl_param)))
+    (comment)
+    (end_token))
+  (comment)
+  (comment)
+  (comment))

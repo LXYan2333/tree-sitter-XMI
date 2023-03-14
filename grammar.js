@@ -1,6 +1,8 @@
 module.exports = grammar({
     name: 'XMI',
 
+    extras: $ => [$.comment, /\s/],
+
     rules: {
         source_file: $ => repeat($._section),
 
@@ -37,5 +39,8 @@ module.exports = grammar({
 
         ctrl_keyword: $ => /[^\s=,;#]+/,
         ctrl_param: $ => token.immediate(/[^\s=,;#]+/),
+
+        // comment
+        comment: $ => /[#;].*/,
     }
 });
