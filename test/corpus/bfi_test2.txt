@@ -1,0 +1,30 @@
+==================
+bfi section 2
+==================
+
+$bfi
+3 6
+1 4 5
+1 2 4 7 8 11
+$end
+
+---
+
+(source_file
+    (bfi_section
+        start_token: (bfi_start_token)
+        (NFROZ_and_NBAS
+            (int)
+            (int))
+        (list_of_frozen_MOs
+            (int)
+            (int)
+            (int))
+        (list_of_basis_functions
+            (int)
+            (int)
+            (int)
+            (int)
+            (int)
+            (int))
+        (end_token)))

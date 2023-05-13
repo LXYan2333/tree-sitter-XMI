@@ -1,0 +1,73 @@
+==================
+bfi section 1
+==================
+
+$BFI
+3 8
+1 3 4
+1 1 1 1 1 1 3 3
+1.0 1
+1.0 2
+1.0 4
+1.0 7
+1.0 8
+1.0 11
+0.5 12 0.5 14 0.5 16
+0.5 13 0.5 15 0.5 17
+$END
+
+---
+
+(source_file
+    (bfi_section
+        start_token: (bfi_start_token)
+        (NFROZ_and_NBAS
+            (int)
+            (int))
+        (list_of_frozen_MOs
+            (int)
+            (int)
+            (int))
+        (list_of_basis_functions
+            (int)
+            (int)
+            (int)
+            (int)
+            (int)
+            (int)
+            (int)
+            (int))
+        (functions_hybrid_list
+            (basis_function_composition
+            ratio: (float)
+            orbit: (int))
+            (basis_function_composition
+            ratio: (float)
+            orbit: (int))
+            (basis_function_composition
+            ratio: (float)
+            orbit: (int))
+            (basis_function_composition
+            ratio: (float)
+            orbit: (int))
+            (basis_function_composition
+            ratio: (float)
+            orbit: (int))
+            (basis_function_composition
+            ratio: (float)
+            orbit: (int))
+            (basis_function_composition
+            ratio: (float)
+            orbit: (int)
+            ratio: (float)
+            orbit: (int)
+            ratio: (float)
+            orbit: (int))
+            (basis_function_composition
+            ratio: (float)
+            orbit: (int)
+            ratio: (float)
+            orbit: (int)
+            ratio: (float)
+            orbit: (int)))
+        (end_token)))
