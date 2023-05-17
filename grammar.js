@@ -38,6 +38,7 @@ module.exports = grammar({
         _section: $ => choice(
             $.ctrl_section,
             $.bfi_section,
+            $.str_section,
             // TODO
             // add other sections
         ),
@@ -118,6 +119,23 @@ module.exports = grammar({
         functions_hybrid: $ => $._ratio_and_orbit_pair,
 
         _ratio_and_orbit_pair: $ => seq(field('ratio', $.float), field('orbit', $.int)),
+
+        // str 部分
+        str_section: $ => seq(
+            field('start_token', $.str_start_token),
+            $._line_ending,
+            $.str_items_list,
+            $.end_token
+        ),
+
+        str_start_token: $ => /\$[sS][tT][rR]/,
+
+        str_items_list: $ => repeat1($.VB_structures_or_determinants),
+
+        VB_structures_or_determinants: $ => seq(
+            $._ints_seperate1,
+            $._line_ending
+        ),
 
         // comment
         comment: $ => /[#;][^\r\n]*/,

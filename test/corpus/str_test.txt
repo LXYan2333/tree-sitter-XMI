@@ -1,0 +1,27 @@
+==================
+str
+==================
+
+$STR
+1 2
+1 1
+2 2 ; S3
+$END
+
+---
+
+(source_file
+  (str_section
+    start_token: (str_start_token)
+    (str_items_list
+      (VB_structures_or_determinants
+        (int)
+        (int))
+      (VB_structures_or_determinants
+        (int)
+        (int))
+      (VB_structures_or_determinants
+        (int)
+        (int)
+        (comment)))
+    (end_token)))
