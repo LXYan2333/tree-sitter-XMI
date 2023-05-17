@@ -29,20 +29,8 @@ module.exports = grammar({
 
         // 一系列的整数，由空格隔开。
         // 至少有一个整数
-        _ints_seperate1: $ => seq(
-            $._abstract_int,
-            optional(repeat1(seq(
-                $._space,
-                $._abstract_int
-            )))
-        ),
-        // 至少有两个整数
-        _ints_seperate2: $ => seq(
-            $._abstract_int,
-            repeat1(seq(
-                $._space,
-                $._abstract_int
-            ))
+        _ints_seperate1: $ => repeat1(
+            $._abstract_int
         ),
 
         float: $ => /-?[0-9]+\.[0-9]+/,
@@ -57,6 +45,7 @@ module.exports = grammar({
         // $ctrl
         ctrl_section: $ => seq(
             field('start_token', $.ctrl_start_token),
+            $._line_ending,
             field('items_list', $.ctrl_items_list),
             $.end_token
         ),
@@ -131,6 +120,6 @@ module.exports = grammar({
         _ratio_and_orbit_pair: $ => seq(field('ratio', $.float), field('orbit', $.int)),
 
         // comment
-        comment: $ => /[#;].*/,
+        comment: $ => /[#;][^\r\n]*/,
     }
 });
