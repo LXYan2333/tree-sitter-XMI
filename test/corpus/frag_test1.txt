@@ -1,0 +1,31 @@
+==================
+frag section 1
+==================
+
+$FRAG
+2
+spzfxxzfyyzfzzzdxxdyydzz 1 2
+$END
+
+---
+
+(source_file
+    (frag_section
+    (frag_start_token)
+    (number_of_fragments
+        (int))
+    (frags
+        (frag_description
+        (basis_function_description
+            (s)
+            (p)
+            (f)
+            (f)
+            (f)
+            (d)
+            (d)
+            (d))
+        (number_of_atom_or_basis_function_in_the_fragment
+            (int)
+            (int))))
+    (end_token)))

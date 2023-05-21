@@ -1,0 +1,59 @@
+==================
+frag section 2
+==================
+
+$frag
+8 3 2 3
+spypzdxxdyydzz 1-8
+pxdxzdxy 1-3
+pxdxzdxy 4 5
+pxdxzdxy 6-8
+$end
+
+---
+
+(source_file
+    (frag_section
+    start_token: (frag_start_token)
+    (number_of_fragments
+        (int)
+        (int)
+        (int)
+        (int))
+    (frags
+        (frag_description
+        (basis_function_description
+            (s)
+            (p)
+            (p)
+            (d)
+            (d)
+            (d))
+        (number_of_atom_or_basis_function_in_the_fragment
+            (int_minor
+            start: (int))))
+        (frag_description
+        (basis_function_description
+            (p)
+            (d)
+            (d))
+        (number_of_atom_or_basis_function_in_the_fragment
+            (int_minor
+            start: (int))))
+        (frag_description
+        (basis_function_description
+            (p)
+            (d)
+            (d))
+        (number_of_atom_or_basis_function_in_the_fragment
+            (int)
+            (int)))
+        (frag_description
+        (basis_function_description
+            (p)
+            (d)
+            (d))
+        (number_of_atom_or_basis_function_in_the_fragment
+            (int_minor
+            start: (int)))))
+    (end_token)))

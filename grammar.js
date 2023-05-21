@@ -41,6 +41,7 @@ module.exports = grammar({
             repeat(seq(
                 $._space,
                 $._abstract_int
+            ))
         ),
 
         float: $ => /-?[0-9]+\.[0-9]+/,
@@ -49,6 +50,7 @@ module.exports = grammar({
             $.ctrl_section,
             $.bfi_section,
             $.str_section,
+            $.frag_section,
             // TODO
             // add other sections
         ),
@@ -146,6 +148,66 @@ module.exports = grammar({
             $._ints_seperate1,
             $._line_ending
         ),
+
+        // frag 部分
+        frag_section: $ => seq(
+            field('start_token', $.frag_start_token),
+            $._line_ending,
+            $.number_of_fragments,
+            $._line_ending,
+            $.frags,
+            $.end_token
+        ),
+
+        /**
+         * $FRAG
+         * nf (1), nf (2), . . . nf (N)                                                 //number of atoms or basis functions in the i-th fragment
+         * [basis function description(1)] lf(1,1), lf(2,1), . . . lf(nf(1),1)          //frag_description
+         * [spzdxxyyzzfzzzxxzyyz] lf(1,2), lf(2,2), . . . lf(nf(2),2)                   //      spzdxxyyzzfzzzxxzyyz: basis function description    pz: basis function
+         * ...                                                                          //      lf(1,1), lf(2,1), . . . lf(nf(1),1): atom or basis function in the fragment.
+         * [basis function description(N)] lf(1,N), lf(2,N), . . . lf(nf(N),N)
+         * $END
+         */
+
+        frag_start_token: $ => /\$[fF][rR][aA][gG]/,
+
+        number_of_fragments: $ => $._ints_seperate1,
+
+        frags: $ => repeat1($.frag_description),
+
+        frag_description: $ => seq(
+            optional(seq(
+                $.basis_function_description,
+                $._space
+            )),
+            $.number_of_atom_or_basis_function_in_the_fragment,
+            $._line_ending
+        ),
+
+        basis_function_description: $ => repeat1($._basis_function),
+
+        _basis_function: $ => choice(
+            $.s,
+            $.p,
+            $.d,
+            $.f
+        ),
+
+        s: $ => 's',
+        p: $ => seq(
+            'p',
+            repeat1(field('direction', /[xyz]/))
+        ),
+        d: $ => seq(
+            'd',
+            repeat1(field('direction', /[xyz]{2}/))
+        ),
+        f: $ => seq(
+            'f',
+            repeat1(field('direction', /[xyz]{3}/))
+        ),
+
+        number_of_atom_or_basis_function_in_the_fragment: $ => $._ints_seperate1,
 
         // comment
         comment: $ => /[ ]*[#;][^\r\n]*/,
