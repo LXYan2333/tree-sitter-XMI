@@ -51,6 +51,7 @@ module.exports = grammar({
             $.bfi_section,
             $.str_section,
             $.frag_section,
+            $.orb_section,
             // TODO
             // add other sections
         ),
@@ -208,6 +209,27 @@ module.exports = grammar({
         ),
 
         number_of_atom_or_basis_function_in_the_fragment: $ => $._ints_seperate1,
+
+        // orb 部分
+        orb_section: $ => seq(
+            field('start_token', $.orb_start_token),
+            $._line_ending,
+            $.number_of_basis_functions_or_fragments_used_for_VB_orbitals,
+            $._line_ending,
+            $.orbital_expansion,
+            $.end_token
+        ),
+
+        orb_start_token: $ => /\$[oO][rR][bB]/,
+
+        number_of_basis_functions_or_fragments_used_for_VB_orbitals: $ => $._ints_seperate1,
+
+        orbital_expansion: $ => repeat1(seq(
+            $.indices_of_basis_functions,
+            $._line_ending
+        )),
+
+        indices_of_basis_functions: $ => repeat1($._ints_seperate1),
 
         // comment
         comment: $ => /[ ]*[#;][^\r\n]*/,

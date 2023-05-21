@@ -1,0 +1,35 @@
+==================
+orb
+==================
+
+$orb
+4 4 2
+3 4 5 6
+4 3 5 6
+1 2
+$end
+
+---
+
+(source_file
+    (orb_section
+    start_token: (orb_start_token)
+    (number_of_basis_functions_or_fragments_used_for_VB_orbitals
+        (int)
+        (int)
+        (int))
+    (orbital_expansion
+        (indices_of_basis_functions
+        (int)
+        (int)
+        (int)
+        (int))
+        (indices_of_basis_functions
+        (int)
+        (int)
+        (int)
+        (int))
+        (indices_of_basis_functions
+        (int)
+        (int)))
+    (end_token)))
