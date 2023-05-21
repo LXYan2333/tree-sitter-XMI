@@ -6,31 +6,41 @@ module.exports = grammar({
     rules: {
         source_file: $ => repeat($._section),
 
-        end_token: $ => token(prec(2, /\$[eE][nN][dD]/)),
-        _line_ending: $ => /\r?\n/,
-        _space: $ => /[ ]/,
+        end_token: $ => /\$[eE][nN][dD]/,
+        _line_ending: $ => /[ ]*\r?\n/,
+        _space: $ => ' ',
 
         int: $ => /-?[0-9]+/,
         // 语法糖，对应 1:2
         int_colon: $ => seq(
             field('start', $.int),
             token.immediate(':'),
-            field('end', $.int)
+            field('end', token.immediate(/-?[0-9]+/))
         ),
         // 语法糖，对应 1*2
         int_asterisk: $ => seq(
             field('num', $.int),
             token.immediate('*'),
-            field('multiplier', $.int)
+            field('times', token.immediate(/-?[0-9]+/))
         ),
+        // 语法糖，对应 1-2
+        int_minor: $ =>
+            seq(
+                field('start', $.int),
+                token.immediate('-'),
+                field('end', token.immediate(/-?[0-9]+/))
+            ),
         _abstract_int: $ => choice(
-            $.int, $.int_asterisk, $.int_colon
+            $.int, $.int_asterisk, $.int_colon, $.int_minor
         ),
 
         // 一系列的整数，由空格隔开。
         // 至少有一个整数
-        _ints_seperate1: $ => repeat1(
-            $._abstract_int
+        _ints_seperate1: $ => seq(
+            $._abstract_int,
+            repeat(seq(
+                $._space,
+                $._abstract_int
         ),
 
         float: $ => /-?[0-9]+\.[0-9]+/,
@@ -138,6 +148,6 @@ module.exports = grammar({
         ),
 
         // comment
-        comment: $ => /[#;][^\r\n]*/,
+        comment: $ => /[ ]*[#;][^\r\n]*/,
     }
 });
