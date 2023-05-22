@@ -52,6 +52,7 @@ module.exports = grammar({
             $.str_section,
             $.frag_section,
             $.orb_section,
+            $.aim_section,
             // TODO
             // add other sections
         ),
@@ -230,6 +231,19 @@ module.exports = grammar({
         )),
 
         indices_of_basis_functions: $ => repeat1($._ints_seperate1),
+
+        // aim 部分
+        aim_section: $ => seq(
+            field('start_token', $.aim_start_token),
+            $._line_ending,
+            $.filename,
+            $._line_ending,
+            $.end_token
+        ),
+
+        aim_start_token: $ => /\$[aA][iI][mM]/,
+
+        filename: $ => /[^#;\r\n]+/,
 
         // comment
         comment: $ => /[ ]*[#;][^\r\n]*/,
