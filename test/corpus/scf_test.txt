@@ -1,0 +1,21 @@
+==================
+scf
+==================
+
+$SCF
+1.0 1.0
+2.0 -2.0
+$END
+
+---
+
+(source_file
+    (scf_section
+    start_token: (scf_start_token)
+    (coefficients
+        (float)
+        (float))
+    (coefficients
+        (float)
+        (float))
+    (end_token)))

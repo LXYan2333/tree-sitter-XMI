@@ -54,6 +54,7 @@ module.exports = grammar({
             $.orb_section,
             $.aim_section,
             $.gus_section,
+            $.scf_section,
             // TODO
             // add other sections
         ),
@@ -260,6 +261,21 @@ module.exports = grammar({
         guess_from_MOs: $ => $._ints_seperate1,
 
         gus_start_token: $ => /\$[gG][uU][sS]/,
+
+        // scf 部分
+        scf_section: $ => seq(
+            field('start_token', $.scf_start_token),
+            $._line_ending,
+            repeat1(seq(
+                $.coefficients,
+                $._line_ending
+            )),
+            $.end_token
+        ),
+
+        scf_start_token: $ => /\$[sS][cC][fF]/,
+
+        coefficients: $ => repeat1($.float),
 
         // comment
         comment: $ => /[ ]*[#;][^\r\n]*/,
