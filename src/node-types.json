@@ -1,0 +1,1049 @@
+[
+  {
+    "type": "NFROZ_and_NBAS",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "int",
+          "named": true
+        },
+        {
+          "type": "int_asterisk",
+          "named": true
+        },
+        {
+          "type": "int_colon",
+          "named": true
+        },
+        {
+          "type": "int_minor",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "VB_structures_or_determinants",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "int",
+          "named": true
+        },
+        {
+          "type": "int_asterisk",
+          "named": true
+        },
+        {
+          "type": "int_colon",
+          "named": true
+        },
+        {
+          "type": "int_minor",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "aim_section",
+    "named": true,
+    "fields": {
+      "start_token": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "aim_start_token",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "end_token",
+          "named": true
+        },
+        {
+          "type": "filename",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "atom_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "gamess_format_atom",
+          "named": true
+        },
+        {
+          "type": "gaussian_format_atom",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "basis_function_composition",
+    "named": true,
+    "fields": {
+      "orbit": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "int",
+            "named": true
+          }
+        ]
+      },
+      "ratio": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "float",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "basis_function_description",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "d",
+          "named": true
+        },
+        {
+          "type": "f",
+          "named": true
+        },
+        {
+          "type": "p",
+          "named": true
+        },
+        {
+          "type": "s",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "bfi_section",
+    "named": true,
+    "fields": {
+      "start_token": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "bfi_start_token",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "NFROZ_and_NBAS",
+          "named": true
+        },
+        {
+          "type": "end_token",
+          "named": true
+        },
+        {
+          "type": "functions_hybrid_list",
+          "named": true
+        },
+        {
+          "type": "list_of_basis_functions",
+          "named": true
+        },
+        {
+          "type": "list_of_frozen_MOs",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "coefficients",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "float",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "ctrl_item",
+    "named": true,
+    "fields": {
+      "keyword": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "ctrl_keyword",
+            "named": true
+          }
+        ]
+      },
+      "param": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "ctrl_param",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "ctrl_items_list",
+    "named": true,
+    "fields": {
+      "item": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "ctrl_item",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "ctrl_section",
+    "named": true,
+    "fields": {
+      "items_list": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "ctrl_items_list",
+            "named": true
+          }
+        ]
+      },
+      "start_token": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "ctrl_start_token",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "end_token",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "d",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "f",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "frag_description",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "basis_function_description",
+          "named": true
+        },
+        {
+          "type": "number_of_atom_or_basis_function_in_the_fragment",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "frag_section",
+    "named": true,
+    "fields": {
+      "start_token": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "frag_start_token",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "end_token",
+          "named": true
+        },
+        {
+          "type": "frags",
+          "named": true
+        },
+        {
+          "type": "number_of_fragments",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "frags",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "frag_description",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "functions_hybrid_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "basis_function_composition",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "gamess_format_atom",
+    "named": true,
+    "fields": {
+      "charge": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "float",
+            "named": true
+          }
+        ]
+      },
+      "x": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "float",
+            "named": true
+          }
+        ]
+      },
+      "y": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "float",
+            "named": true
+          }
+        ]
+      },
+      "z": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "float",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "gaussian_format_atom",
+    "named": true,
+    "fields": {
+      "x": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "float",
+            "named": true
+          }
+        ]
+      },
+      "y": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "float",
+            "named": true
+          }
+        ]
+      },
+      "z": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "float",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "geo_section",
+    "named": true,
+    "fields": {
+      "start_token": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "geo_start_token",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "atom_list",
+          "named": true
+        },
+        {
+          "type": "end_token",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "guess_from_MOs",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "int",
+          "named": true
+        },
+        {
+          "type": "int_asterisk",
+          "named": true
+        },
+        {
+          "type": "int_colon",
+          "named": true
+        },
+        {
+          "type": "int_minor",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "gus_section",
+    "named": true,
+    "fields": {
+      "start_token": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "gus_start_token",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "end_token",
+          "named": true
+        },
+        {
+          "type": "guess_from_MOs",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "indices_of_basis_functions",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "int",
+          "named": true
+        },
+        {
+          "type": "int_asterisk",
+          "named": true
+        },
+        {
+          "type": "int_colon",
+          "named": true
+        },
+        {
+          "type": "int_minor",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "int_asterisk",
+    "named": true,
+    "fields": {
+      "num": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "int",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "int_colon",
+    "named": true,
+    "fields": {
+      "start": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "int",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "int_minor",
+    "named": true,
+    "fields": {
+      "start": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "int",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "list_of_basis_functions",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "int",
+          "named": true
+        },
+        {
+          "type": "int_asterisk",
+          "named": true
+        },
+        {
+          "type": "int_colon",
+          "named": true
+        },
+        {
+          "type": "int_minor",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "list_of_frozen_MOs",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "int",
+          "named": true
+        },
+        {
+          "type": "int_asterisk",
+          "named": true
+        },
+        {
+          "type": "int_colon",
+          "named": true
+        },
+        {
+          "type": "int_minor",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "number_of_atom_or_basis_function_in_the_fragment",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "int",
+          "named": true
+        },
+        {
+          "type": "int_asterisk",
+          "named": true
+        },
+        {
+          "type": "int_colon",
+          "named": true
+        },
+        {
+          "type": "int_minor",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "number_of_basis_functions_or_fragments_used_for_VB_orbitals",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "int",
+          "named": true
+        },
+        {
+          "type": "int_asterisk",
+          "named": true
+        },
+        {
+          "type": "int_colon",
+          "named": true
+        },
+        {
+          "type": "int_minor",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "number_of_fragments",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "int",
+          "named": true
+        },
+        {
+          "type": "int_asterisk",
+          "named": true
+        },
+        {
+          "type": "int_colon",
+          "named": true
+        },
+        {
+          "type": "int_minor",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "orb_section",
+    "named": true,
+    "fields": {
+      "start_token": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "orb_start_token",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "end_token",
+          "named": true
+        },
+        {
+          "type": "number_of_basis_functions_or_fragments_used_for_VB_orbitals",
+          "named": true
+        },
+        {
+          "type": "orbital_expansion",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "orbital_expansion",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "indices_of_basis_functions",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "p",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "scf_section",
+    "named": true,
+    "fields": {
+      "start_token": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "scf_start_token",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "coefficients",
+          "named": true
+        },
+        {
+          "type": "end_token",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "source_file",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "aim_section",
+          "named": true
+        },
+        {
+          "type": "bfi_section",
+          "named": true
+        },
+        {
+          "type": "ctrl_section",
+          "named": true
+        },
+        {
+          "type": "explanation",
+          "named": true
+        },
+        {
+          "type": "frag_section",
+          "named": true
+        },
+        {
+          "type": "geo_section",
+          "named": true
+        },
+        {
+          "type": "gus_section",
+          "named": true
+        },
+        {
+          "type": "orb_section",
+          "named": true
+        },
+        {
+          "type": "scf_section",
+          "named": true
+        },
+        {
+          "type": "str_section",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "str_items_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "VB_structures_or_determinants",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "str_section",
+    "named": true,
+    "fields": {
+      "start_token": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "str_start_token",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "end_token",
+          "named": true
+        },
+        {
+          "type": "str_items_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "*",
+    "named": false
+  },
+  {
+    "type": ",",
+    "named": false
+  },
+  {
+    "type": "-",
+    "named": false
+  },
+  {
+    "type": ":",
+    "named": false
+  },
+  {
+    "type": "=",
+    "named": false
+  },
+  {
+    "type": "aim_start_token",
+    "named": true
+  },
+  {
+    "type": "bfi_start_token",
+    "named": true
+  },
+  {
+    "type": "comment",
+    "named": true
+  },
+  {
+    "type": "ctrl_keyword",
+    "named": true
+  },
+  {
+    "type": "ctrl_param",
+    "named": true
+  },
+  {
+    "type": "ctrl_start_token",
+    "named": true
+  },
+  {
+    "type": "d",
+    "named": false
+  },
+  {
+    "type": "end_token",
+    "named": true
+  },
+  {
+    "type": "explanation",
+    "named": true
+  },
+  {
+    "type": "f",
+    "named": false
+  },
+  {
+    "type": "filename",
+    "named": true
+  },
+  {
+    "type": "float",
+    "named": true
+  },
+  {
+    "type": "frag_start_token",
+    "named": true
+  },
+  {
+    "type": "geo_start_token",
+    "named": true
+  },
+  {
+    "type": "gus_start_token",
+    "named": true
+  },
+  {
+    "type": "int",
+    "named": true
+  },
+  {
+    "type": "orb_start_token",
+    "named": true
+  },
+  {
+    "type": "p",
+    "named": false
+  },
+  {
+    "type": "s",
+    "named": true
+  },
+  {
+    "type": "scf_start_token",
+    "named": true
+  },
+  {
+    "type": "str_start_token",
+    "named": true
+  }
+]
