@@ -53,6 +53,7 @@ module.exports = grammar({
             $.frag_section,
             $.orb_section,
             $.aim_section,
+            $.gus_section,
             // TODO
             // add other sections
         ),
@@ -244,6 +245,21 @@ module.exports = grammar({
         aim_start_token: $ => /\$[aA][iI][mM]/,
 
         filename: $ => /[^#;\r\n]+/,
+
+        // gus 部分
+        gus_section: $ => seq(
+            field('start_token', $.gus_start_token),
+            $._line_ending,
+            repeat1(seq(
+                $.guess_from_MOs,
+                $._line_ending
+            )),
+            $.end_token
+        ),
+
+        guess_from_MOs: $ => $._ints_seperate1,
+
+        gus_start_token: $ => /\$[gG][uU][sS]/,
 
         // comment
         comment: $ => /[ ]*[#;][^\r\n]*/,

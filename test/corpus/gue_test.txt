@@ -1,0 +1,21 @@
+==================
+gus
+==================
+
+$GUS
+1 1
+2 1
+$END
+
+---
+
+(source_file
+    (gus_section
+    (gus_start_token)
+    (guess_from_MOs
+        (int)
+        (int))
+    (guess_from_MOs
+        (int)
+        (int))
+    (end_token)))
