@@ -4,7 +4,12 @@ module.exports = grammar({
     extras: $ => [$.comment, $._line_ending, $._space],
 
     rules: {
-        source_file: $ => repeat($._section),
+        source_file: $ => seq(
+            optional($.explanation),
+            repeat($._section)
+        ),
+
+        explanation: $ => /[^$#;\r\n]+/,
 
         end_token: $ => /\$[eE][nN][dD]/,
         _line_ending: $ => /[ ]*\r?\n/,
