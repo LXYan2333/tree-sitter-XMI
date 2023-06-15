@@ -55,8 +55,7 @@ module.exports = grammar({
             $.aim_section,
             $.gus_section,
             $.scf_section,
-            // TODO
-            // add other sections
+            $.geo_section,
         ),
 
         // $ctrl
@@ -276,6 +275,38 @@ module.exports = grammar({
         scf_start_token: $ => /\$[sS][cC][fF]/,
 
         coefficients: $ => repeat1($.float),
+
+        // geo 部分
+        geo_section: $ => seq(
+            field('start_token', $.geo_start_token),
+            $._line_ending,
+            $.atom_list,
+            $.end_token
+        ),
+
+        geo_start_token: $ => /\$[gG][eE][oO]/,
+
+        atom_list: $ => repeat1(choice(
+            $.gaussian_format_atom,
+            $.gamess_format_atom
+        )),
+
+        gaussian_format_atom: $ => seq(
+            field('atom_name', /[A-Z][a-z]?/),
+            field('x', $.float),
+            field('y', $.float),
+            field('z', $.float),
+            $._line_ending
+        ),
+
+        gamess_format_atom: $ => seq(
+            field('atom_name', /[A-Z][a-z]?/),
+            field('charge', $.float),
+            field('x', $.float),
+            field('y', $.float),
+            field('z', $.float),
+            $._line_ending
+        ),
 
         // comment
         comment: $ => /[ ]*[#;][^\r\n]*/,

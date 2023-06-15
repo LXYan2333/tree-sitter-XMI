@@ -1,0 +1,26 @@
+==================
+geo gamess format
+==================
+
+$GEO
+F 9.0 0.0 0.0 -0.7
+F 9.0 0.0 0.0 0.7
+$END
+
+---
+
+(source_file
+    (geo_section
+    start_token: (geo_start_token)
+    (atom_list
+        (gamess_format_atom
+        charge: (float)
+        x: (float)
+        y: (float)
+        z: (float))
+        (gamess_format_atom
+        charge: (float)
+        x: (float)
+        y: (float)
+        z: (float)))
+    (end_token)))

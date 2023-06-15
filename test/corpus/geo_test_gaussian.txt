@@ -1,0 +1,24 @@
+==================
+geo gaussian format
+==================
+
+$GEO
+F 0.0 0.0 -0.7
+F 0.0 0.0 0.7
+$END
+
+---
+
+(source_file
+    (geo_section
+    start_token: (geo_start_token)
+    (atom_list
+        (gaussian_format_atom
+        x: (float)
+        y: (float)
+        z: (float))
+        (gaussian_format_atom
+        x: (float)
+        y: (float)
+        z: (float)))
+    (end_token)))
