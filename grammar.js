@@ -71,9 +71,31 @@ module.exports = grammar({
             $.end_token
         ),
 
-        ctrl_items_list: $ => repeat1(field('item', $.ctrl_item)),
+        ctrl_items_list: $ => repeat1(choice(
+            field('item', $.ctrl_item),
+            $.ctrl_group_item
+        )),
 
         ctrl_start_token: $ => /\$[cC][tT][rR][lL]/,
+
+        ctrl_group_item: $ => seq(
+            field('keyword', /[gG][rR][oO][uU][pP]/),
+            field('equal', /[ ]*=[ ]*/),
+            $.ctrl_group_group,
+            repeat1(seq(
+                field('double_commas', /[ ]*,,[ ]*/),
+                $.ctrl_group_group
+            ))
+        ),
+
+        ctrl_group_group: $ => seq(
+            field('structure_number', $.int),
+            repeat(seq(
+                field('commas', /[ ]*,[ ]*/),
+                field('structure_number', $.int),
+            ))
+        ),
+
 
         ctrl_item: $ => seq(
             field('keyword', $.ctrl_keyword),
