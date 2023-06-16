@@ -78,10 +78,10 @@ module.exports = grammar({
         ctrl_item: $ => seq(
             field('keyword', $.ctrl_keyword),
             optional(seq(
-                token.immediate('='),
+                field('equal', /[ ]*=[ ]*/),
                 field('param', $.ctrl_param),
                 optional(repeat(seq(
-                    token.immediate(','),
+                    field('commas', /[ ]*,[ ]*/),
                     field('param', $.ctrl_param)
                 )))
             ))
