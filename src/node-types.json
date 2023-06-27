@@ -213,6 +213,37 @@
     }
   },
   {
+    "type": "ctrl_group_group",
+    "named": true,
+    "fields": {
+      "structure_number": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "int",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "ctrl_group_item",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "ctrl_group_group",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "ctrl_item",
     "named": true,
     "fields": {
@@ -244,7 +275,7 @@
     "fields": {
       "item": {
         "multiple": true,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": "ctrl_item",
@@ -252,6 +283,16 @@
           }
         ]
       }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "ctrl_group_item",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -947,19 +988,11 @@
     "named": false
   },
   {
-    "type": ",",
-    "named": false
-  },
-  {
     "type": "-",
     "named": false
   },
   {
     "type": ":",
-    "named": false
-  },
-  {
-    "type": "=",
     "named": false
   },
   {
@@ -993,6 +1026,10 @@
   {
     "type": "end_token",
     "named": true
+  },
+  {
+    "type": "equal",
+    "named": false
   },
   {
     "type": "explanation",
