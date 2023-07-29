@@ -18,8 +18,8 @@ $end#test
     items_list: (ctrl_items_list
       item: (ctrl_item
         keyword: (ctrl_keyword)
-        param: (ctrl_param)))
-    (comment)
+        param: (ctrl_param))
+      (comment))
     (end_token))
   (comment)
   (comment)

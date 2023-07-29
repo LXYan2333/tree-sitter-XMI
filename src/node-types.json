@@ -1000,8 +1000,16 @@
     "named": true
   },
   {
+    "type": "atom_name",
+    "named": false
+  },
+  {
     "type": "bfi_start_token",
     "named": true
+  },
+  {
+    "type": "commas",
+    "named": false
   },
   {
     "type": "comment",
@@ -1021,6 +1029,14 @@
   },
   {
     "type": "d",
+    "named": false
+  },
+  {
+    "type": "direction",
+    "named": false
+  },
+  {
+    "type": "double_commas",
     "named": false
   },
   {

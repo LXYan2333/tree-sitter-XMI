@@ -71,10 +71,14 @@ module.exports = grammar({
             $.end_token
         ),
 
-        ctrl_items_list: $ => repeat1(choice(
-            field('item', $.ctrl_item),
-            $.ctrl_group_item
-        )),
+        ctrl_items_list: $ => seq(
+            repeat1(choice(
+                field('item', $.ctrl_item),
+                $.ctrl_group_item,
+                $._line_ending
+            )),
+            $._line_ending
+        ),
 
         ctrl_start_token: $ => /\$[cC][tT][rR][lL]/,
 
@@ -83,7 +87,7 @@ module.exports = grammar({
             field('equal', /[ ]*=[ ]*/),
             $.ctrl_group_group,
             repeat1(seq(
-                field('double_commas', /[ ]*,,[ ]*/),
+                alias(/[ ]*,,[ ]*/, 'double_commas'),
                 $.ctrl_group_group
             ))
         ),
@@ -91,7 +95,7 @@ module.exports = grammar({
         ctrl_group_group: $ => seq(
             field('structure_number', $.int),
             repeat(seq(
-                field('commas', /[ ]*,[ ]*/),
+                alias(/[ ]*,[ ]*/, 'commas'),
                 field('structure_number', $.int),
             ))
         ),
@@ -103,14 +107,14 @@ module.exports = grammar({
                 alias(/[ ]*=[ ]*/, 'equal'),
                 field('param', $.ctrl_param),
                 optional(repeat(seq(
-                    field('commas', /[ ]*,[ ]*/),
+                    alias(/[ ]*,[ ]*/, 'commas'),
                     field('param', $.ctrl_param)
                 )))
             ))
         ),
 
-        ctrl_keyword: $ => /[^\s=,;#]+/,
-        ctrl_param: $ => token.immediate(/[^\s=,;#]+/),
+        ctrl_keyword: $ => /[^\s=,;#$]+/,
+        ctrl_param: $ => token.immediate(/[^\s=,;#$]+/),
 
         // bfi 部分
         bfi_section: $ => seq(
@@ -226,15 +230,15 @@ module.exports = grammar({
         s: $ => 's',
         p: $ => seq(
             'p',
-            repeat1(field('direction', /[xyz]/))
+            repeat1(alias(/[xyz]/, 'direction'))
         ),
         d: $ => seq(
             'd',
-            repeat1(field('direction', /[xyz]{2}/))
+            repeat1(alias(/[xyz]{2}/, 'direction'))
         ),
         f: $ => seq(
             'f',
-            repeat1(field('direction', /[xyz]{3}/))
+            repeat1(alias(/[xyz]{3}/, 'direction'))
         ),
 
         number_of_atom_or_basis_function_in_the_fragment: $ => $._ints_seperate1,
@@ -319,7 +323,7 @@ module.exports = grammar({
         )),
 
         gaussian_format_atom: $ => seq(
-            field('atom_name', /[A-Z][a-z]?/),
+            alias(/[A-Z][a-z]?/, 'atom_name'),
             field('x', $.float),
             field('y', $.float),
             field('z', $.float),
@@ -327,7 +331,7 @@ module.exports = grammar({
         ),
 
         gamess_format_atom: $ => seq(
-            field('atom_name', /[A-Z][a-z]?/),
+            alias(/[A-Z][a-z]?/, 'atom_name'),
             field('charge', $.float),
             field('x', $.float),
             field('y', $.float),
