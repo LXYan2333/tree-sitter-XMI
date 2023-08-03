@@ -6,7 +6,10 @@ module.exports = grammar({
     rules: {
         source_file: $ => seq(
             optional($.explanation),
-            repeat($._section)
+            repeat(seq(
+                $._section,
+                $._line_ending
+            ))
         ),
 
         explanation: $ => /[^$#;\r\n]+/,
