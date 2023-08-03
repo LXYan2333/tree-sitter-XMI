@@ -122,6 +122,7 @@ module.exports = grammar({
         // bfi 部分
         bfi_section: $ => seq(
             field('start_token', $.bfi_start_token),
+            $._line_ending,
             $.NFROZ_and_NBAS,
             $._line_ending,
             $.list_of_frozen_MOs,
