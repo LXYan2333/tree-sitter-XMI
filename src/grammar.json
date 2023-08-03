@@ -320,12 +320,8 @@
           }
         },
         {
-          "type": "FIELD",
-          "name": "equal",
-          "content": {
-            "type": "PATTERN",
-            "value": "[ ]*=[ ]*"
-          }
+          "type": "STRING",
+          "value": "="
         },
         {
           "type": "SYMBOL",

@@ -90,7 +90,8 @@ module.exports = grammar({
 
         ctrl_group_item: $ => seq(
             field('keyword', /[gG][rR][oO][uU][pP]/),
-            field('equal', /[ ]*=[ ]*/),
+            // 应老师说等号两边可以有空格
+            '=',
             $.ctrl_group_group,
             repeat1(seq(
                 // 应老师说逗号两边不能有空格，tree-sitter 里面不好处理，留到后面分析
