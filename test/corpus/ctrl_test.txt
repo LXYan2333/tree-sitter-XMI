@@ -2,6 +2,7 @@
 ctrl section
 ==================
 
+explaination placeholder
 $ctrl
 nstr=3
 2=3 4=5
@@ -11,6 +12,7 @@ $end
 ---
 
 (source_file
+  (explanation)
   (ctrl_section
     (ctrl_start_token)
     (ctrl_items_list

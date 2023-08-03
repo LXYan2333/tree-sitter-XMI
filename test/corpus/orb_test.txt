@@ -2,6 +2,7 @@
 orb
 ==================
 
+explaination placeholder
 $orb
 4 4 2
 3 4 5 6
@@ -12,6 +13,7 @@ $end
 ---
 
 (source_file
+    (explanation)
     (orb_section
     start_token: (orb_start_token)
     (number_of_basis_functions_or_fragments_used_for_VB_orbitals

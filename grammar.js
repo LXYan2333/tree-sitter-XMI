@@ -5,11 +5,13 @@ module.exports = grammar({
 
     rules: {
         source_file: $ => seq(
-            optional($.explanation),
+            // 应老师说至少要随便写一点东西
+            $.explanation,
             repeat(seq(
+                $._line_ending,
                 $._section,
-                $._line_ending
-            ))
+            )),
+            optional($._line_ending)
         ),
 
         explanation: $ => /[^$#;\r\n]+/,
@@ -19,7 +21,7 @@ module.exports = grammar({
         _space: $ => ' ',
 
         int: $ => /-?[0-9]+/,
-        // 语法糖，对应 1:2
+        // 语法糖，对应 1:3 -> 1 1 2 2 3 3 
         int_colon: $ => seq(
             field('start', $.int),
             token.immediate(':'),
@@ -52,7 +54,8 @@ module.exports = grammar({
             ))
         ),
 
-        float: $ => /-?[0-9]+\.[0-9]+/,
+        // 应老师说支持 .0 这种写法
+        float: $ => /-?[0-9]*\.[0-9]+/,
 
         _section: $ => choice(
             $.ctrl_section,
@@ -90,6 +93,7 @@ module.exports = grammar({
             field('equal', /[ ]*=[ ]*/),
             $.ctrl_group_group,
             repeat1(seq(
+                // 应老师说逗号两边不能有空格，tree-sitter 里面不好处理，留到后面分析
                 alias(/[ ]*,,[ ]*/, 'double_commas'),
                 $.ctrl_group_group
             ))
@@ -98,18 +102,21 @@ module.exports = grammar({
         ctrl_group_group: $ => seq(
             field('structure_number', $.int),
             repeat(seq(
+                // 应老师说逗号两边不能有空格，tree-sitter 里面不好处理，留到后面分析
                 alias(/[ ]*,[ ]*/, 'commas'),
                 field('structure_number', $.int),
             ))
         ),
 
-
+        // ctrl_item 不能在中间换行。tree-sitter 里面不好处理，留到后面分析
         ctrl_item: $ => seq(
             field('keyword', $.ctrl_keyword),
             optional(seq(
-                alias(/[ ]*=[ ]*/, 'equal'),
+                // 应老师说等号两边可以有空格
+                '=',
                 field('param', $.ctrl_param),
                 optional(repeat(seq(
+                    // 应老师说逗号两边不能有空格，tree-sitter 里面不好处理，留到后面分析
                     alias(/[ ]*,[ ]*/, 'commas'),
                     field('param', $.ctrl_param)
                 )))
@@ -222,6 +229,7 @@ module.exports = grammar({
             $._line_ending
         ),
 
+        // basis_function_description 中间不能有空格，也不能有换行。tree-sitter 里面不好处理，留到后面分析
         basis_function_description: $ => repeat1($._basis_function),
 
         _basis_function: $ => choice(

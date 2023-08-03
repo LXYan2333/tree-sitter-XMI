@@ -2,6 +2,7 @@
 gus
 ==================
 
+explaination placeholder
 $GUS
 1 1
 2 1
@@ -10,6 +11,7 @@ $END
 ---
 
 (source_file
+    (explanation)
     (gus_section
     (gus_start_token)
     (guess_from_MOs

@@ -2,6 +2,7 @@
 bfi section 2
 ==================
 
+explaination placeholder
 $bfi
 3 6
 1 4 5
@@ -11,6 +12,7 @@ $end
 ---
 
 (source_file
+    (explanation)
     (bfi_section
         start_token: (bfi_start_token)
         (NFROZ_and_NBAS

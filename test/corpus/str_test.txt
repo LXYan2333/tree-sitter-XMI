@@ -2,6 +2,7 @@
 str
 ==================
 
+explaination placeholder
 $STR
 1 2
 1 1
@@ -11,6 +12,7 @@ $END
 ---
 
 (source_file
+  (explanation)
   (str_section
     start_token: (str_start_token)
     (str_items_list

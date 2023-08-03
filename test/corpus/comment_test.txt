@@ -2,6 +2,7 @@
 comment
 ==================
 
+explaination placeholder
 $ctrl#test
 nstr=3;test
 $end#test
@@ -12,6 +13,7 @@ $end#test
 ---
 
 (source_file
+  (explanation)
   (ctrl_section
     start_token: (ctrl_start_token)
     (comment)

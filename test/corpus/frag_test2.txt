@@ -2,6 +2,7 @@
 frag section 2
 ==================
 
+explaination placeholder
 $frag
 8 3 2 3
 spypzdxxdyydzz 1-8
@@ -13,6 +14,7 @@ $end
 ---
 
 (source_file
+    (explanation)
     (frag_section
     start_token: (frag_start_token)
     (number_of_fragments

@@ -893,7 +893,7 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "aim_section",
@@ -996,6 +996,10 @@
     "named": false
   },
   {
+    "type": "=",
+    "named": false
+  },
+  {
     "type": "aim_start_token",
     "named": true
   },
@@ -1042,10 +1046,6 @@
   {
     "type": "end_token",
     "named": true
-  },
-  {
-    "type": "equal",
-    "named": false
   },
   {
     "type": "explanation",
