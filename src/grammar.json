@@ -388,6 +388,31 @@
         }
       ]
     },
+    "ctrl_str_item": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "keyword",
+          "content": {
+            "type": "PATTERN",
+            "value": "[sS][tT][rR]"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "="
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ctrl_str_param"
+        }
+      ]
+    },
+    "ctrl_str_param": {
+      "type": "PATTERN",
+      "value": "[^\\s=;#$]+"
+    },
     "ctrl_item": {
       "type": "SEQ",
       "members": [

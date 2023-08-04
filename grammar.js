@@ -109,6 +109,16 @@ module.exports = grammar({
             ))
         ),
 
+        // str 的 ION 参数中间可以出现逗号，因此需要特判。
+        ctrl_str_item: $ => seq(
+            field('keyword', /[sS][tT][rR]/),
+            // 应老师说等号两边可以有空格
+            '=',
+            $.ctrl_str_param
+        ),
+
+        ctrl_str_param: $ => /[^\s=;#$]+/,
+
         // ctrl_item 不能在中间换行。tree-sitter 里面不好处理，留到后面分析
         ctrl_item: $ => seq(
             field('keyword', $.ctrl_keyword),

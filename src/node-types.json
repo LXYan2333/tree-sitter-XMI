@@ -1032,6 +1032,10 @@
     "named": true
   },
   {
+    "type": "ctrl_str_param",
+    "named": true
+  },
+  {
     "type": "d",
     "named": false
   },
