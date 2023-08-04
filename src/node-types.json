@@ -215,26 +215,36 @@
   {
     "type": "ctrl_group_group",
     "named": true,
-    "fields": {
-      "structure_number": {
-        "multiple": true,
-        "required": true,
-        "types": [
-          {
-            "type": "int",
-            "named": true
-          }
-        ]
-      }
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "structure_number",
+          "named": true
+        }
+      ]
     }
   },
   {
     "type": "ctrl_group_item",
     "named": true,
-    "fields": {},
+    "fields": {
+      "keyword": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "ctrl_group_keyword",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "ctrl_group_group",
@@ -1020,6 +1030,10 @@
     "named": true
   },
   {
+    "type": "ctrl_group_keyword",
+    "named": true
+  },
+  {
     "type": "ctrl_keyword",
     "named": true
   },
@@ -1029,6 +1043,10 @@
   },
   {
     "type": "ctrl_start_token",
+    "named": true
+  },
+  {
+    "type": "ctrl_str_keyword",
     "named": true
   },
   {
@@ -1101,6 +1119,10 @@
   },
   {
     "type": "str_start_token",
+    "named": true
+  },
+  {
+    "type": "structure_number",
     "named": true
   }
 ]

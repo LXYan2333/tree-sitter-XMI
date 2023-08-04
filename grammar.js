@@ -89,33 +89,41 @@ module.exports = grammar({
         ctrl_start_token: $ => /\$[cC][tT][rR][lL]/,
 
         ctrl_group_item: $ => seq(
-            field('keyword', /[gG][rR][oO][uU][pP]/),
+            field('keyword', $.ctrl_group_keyword),
             // 应老师说等号两边可以有空格
-            '=',
-            $.ctrl_group_group,
-            repeat1(seq(
-                // 应老师说逗号两边不能有空格，tree-sitter 里面不好处理，留到后面分析
-                alias(/[ ]*,,[ ]*/, 'double_commas'),
-                $.ctrl_group_group
+            optional(seq(
+                '=',
+                optional(seq(
+                    $.ctrl_group_group,
+                    repeat(seq(
+                        // 应老师说逗号两边不能有空格，tree-sitter 里面不好处理，留到后面分析
+                        alias(/[ ]*,,[ ]*/, 'double_commas'),
+                        $.ctrl_group_group
+                    ))
+                ))
             ))
         ),
 
+        ctrl_group_keyword: $ => /[gG][rR][oO][uU][pP]/,
+
         ctrl_group_group: $ => seq(
-            field('structure_number', $.int),
+            alias($.int, $.structure_number),
             repeat(seq(
                 // 应老师说逗号两边不能有空格，tree-sitter 里面不好处理，留到后面分析
                 alias(/[ ]*,[ ]*/, 'commas'),
-                field('structure_number', $.int),
+                alias($.int, $.structure_number),
             ))
         ),
 
         // str 的 ION 参数中间可以出现逗号，因此需要特判。
         ctrl_str_item: $ => seq(
-            field('keyword', /[sS][tT][rR]/),
+            field('keyword', $.ctrl_str_keyword),
             // 应老师说等号两边可以有空格
             '=',
             $.ctrl_str_param
         ),
+
+        ctrl_str_keyword: $ => /[sS][tT][rR]/,
 
         ctrl_str_param: $ => /[^\s=;#$]+/,
 

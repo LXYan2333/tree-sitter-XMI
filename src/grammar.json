@@ -315,51 +315,82 @@
           "type": "FIELD",
           "name": "keyword",
           "content": {
-            "type": "PATTERN",
-            "value": "[gG][rR][oO][uU][pP]"
+            "type": "SYMBOL",
+            "name": "ctrl_group_keyword"
           }
         },
         {
-          "type": "STRING",
-          "value": "="
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ctrl_group_group"
-        },
-        {
-          "type": "REPEAT1",
-          "content": {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "ALIAS",
-                "content": {
-                  "type": "PATTERN",
-                  "value": "[ ]*,,[ ]*"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "="
                 },
-                "named": false,
-                "value": "double_commas"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "ctrl_group_group"
-              }
-            ]
-          }
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SEQ",
+                      "members": [
+                        {
+                          "type": "SYMBOL",
+                          "name": "ctrl_group_group"
+                        },
+                        {
+                          "type": "REPEAT",
+                          "content": {
+                            "type": "SEQ",
+                            "members": [
+                              {
+                                "type": "ALIAS",
+                                "content": {
+                                  "type": "PATTERN",
+                                  "value": "[ ]*,,[ ]*"
+                                },
+                                "named": false,
+                                "value": "double_commas"
+                              },
+                              {
+                                "type": "SYMBOL",
+                                "name": "ctrl_group_group"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "BLANK"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         }
       ]
+    },
+    "ctrl_group_keyword": {
+      "type": "PATTERN",
+      "value": "[gG][rR][oO][uU][pP]"
     },
     "ctrl_group_group": {
       "type": "SEQ",
       "members": [
         {
-          "type": "FIELD",
-          "name": "structure_number",
+          "type": "ALIAS",
           "content": {
             "type": "SYMBOL",
             "name": "int"
-          }
+          },
+          "named": true,
+          "value": "structure_number"
         },
         {
           "type": "REPEAT",
@@ -376,12 +407,13 @@
                 "value": "commas"
               },
               {
-                "type": "FIELD",
-                "name": "structure_number",
+                "type": "ALIAS",
                 "content": {
                   "type": "SYMBOL",
                   "name": "int"
-                }
+                },
+                "named": true,
+                "value": "structure_number"
               }
             ]
           }
@@ -395,8 +427,8 @@
           "type": "FIELD",
           "name": "keyword",
           "content": {
-            "type": "PATTERN",
-            "value": "[sS][tT][rR]"
+            "type": "SYMBOL",
+            "name": "ctrl_str_keyword"
           }
         },
         {
@@ -408,6 +440,10 @@
           "name": "ctrl_str_param"
         }
       ]
+    },
+    "ctrl_str_keyword": {
+      "type": "PATTERN",
+      "value": "[sS][tT][rR]"
     },
     "ctrl_str_param": {
       "type": "PATTERN",
